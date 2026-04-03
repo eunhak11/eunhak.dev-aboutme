@@ -1,6 +1,6 @@
 # eunhak.dev
 
-이은학 개인 포트폴리오 사이트
+### Aboutme 페이지
 
 ## 구조
 
@@ -26,7 +26,7 @@ eunhak.dev/
 ```
 GitHub (eunhak.dev)
     ↓ git pull
-KT Cloud 서버 (/var/www/html/aboutme/working)
+KT Cloud 서버
     ↓ Nginx
 eunhak.dev
 ```
