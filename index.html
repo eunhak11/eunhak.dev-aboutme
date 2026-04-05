@@ -3,112 +3,236 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
 <title>eunhak</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Pretendard:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<script src="js/main.js" defer></script>
 </head>
 <body>
+
 <nav class="nav">
   <div class="nav-inner">
     <div class="nav-links">
-      <a href="index.html" class="nav-link active">home</a>
-      <a href="experience.html" class="nav-link">experience</a>
-      <a href="projects.html" class="nav-link">projects</a>
-      <a href="blog.html" class="nav-link">blog</a>
+      <a href="#home"       class="nav-link active">home</a>
+      <a href="#experience" class="nav-link">experience</a>
+      <a href="#projects"   class="nav-link">projects</a>
+      <a href="#contact"    class="nav-link">contact</a>
     </div>
     <a href="planner.html" class="nav-tool">tools →</a>
   </div>
 </nav>
 
 <main class="main">
-  <div class="breadcrumb">
-    <span class="crumb-dir">📁 ~/eunhak</span>
-    <span class="crumb-arr"></span>
-    <span class="crumb-root">🛡 root</span>
-    <span class="crumb-arr2"></span>
-  </div>
 
-  <h1 class="hero-title">Hi. I'm eunhak</h1>
+  <!-- ── HOME ── -->
+  <section id="home" class="page-section">
+    <div class="breadcrumb">
+      <span class="crumb-dir">📁 ~/eunhak</span>
+      <span class="crumb-arr"></span>
+      <span class="crumb-root">🛡 root</span>
+      <span class="crumb-arr2"></span>
+    </div>
 
-  <div class="hero">
-    <div class="profile-img" onclick="openPwModal()">
-    <img src="assets/img/profile.jpeg" alt="eunhak" onerror="this.style.display='none';this.parentElement.innerHTML='🧑‍💻'" />
-  </div>
-    <div class="profile-info">
-      <div class="status-line">Provisioning: Aspiring Server Developer in progress...</div>
-      <div class="active-badge">
-        <div class="dot"></div>
-        <span class="active-text">Active: active (running) Learning Infra &amp; Server Engineering</span>
+    <h1 class="hero-title">Hi. I'm eunhak</h1>
+
+    <div class="hero">
+      <div class="profile-wrap">
+        <div class="profile-img" onclick="openPwModal()">
+          <img src="assets/img/profile.jpeg" alt="eunhak" onerror="this.style.display='none';this.parentElement.innerHTML='🧑‍💻'" />
+        </div>
+        <div class="float-badge badge-tr">⚡ Server & Infra</div>
+        <div class="float-badge badge-bl">🖥️ Backend</div>
       </div>
-      <div class="info-row">📍 Korea, Seoul</div>
-      <div class="info-row">📞 010-4079-5428</div>
-      <div class="icons-row">
-        <a class="icon-btn" href="https://github.com" target="_blank" title="GitHub">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85 0 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
-        </a>
-        <a class="icon-btn" href="/cdn-cgi/l/email-protection#2c495942444d476c49544d415c4049024f4341" title="Email">✉</a>
-        <a class="icon-btn" href="blog.html" title="Blog">✍</a>
+      <div class="profile-info">
+        <div class="status-line">Provisioning: Aspiring Server Developer in progress...</div>
+        <div class="active-badge">
+          <div class="dot"></div>
+          <span class="active-text">Active: active (running) <span id="typewriter"></span></span>
+        </div>
+        <div class="info-row">📍 Korea, Seoul</div>
+        <div class="info-row">📞 010-4079-5428</div>
+        <div class="icons-row">
+          <a class="icon-btn" href="https://github.com/eunhak11" target="_blank" title="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85 0 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+          </a>
+          <a class="icon-btn" href="mailto:silverhak1111@gmail.com" title="Email">✉</a>
+          <a class="icon-btn" href="https://hakssi.tistory.com/" target="_blank" title="Blog">✍</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="terminal-box">
-    <div class="term-prompt">$ write eunhak</div>
-    <input class="term-input" type="text" placeholder="Message: Write your text and press Enter to Send..." />
-  </div>
+    <div class="terminal-box">
+      <div class="term-prompt">$ write eunhak</div>
+      <input class="term-input" type="text" placeholder="Message: Write your text and press Enter to Send..." />
+    </div>
 
-  <div class="section-gap">
-    <div class="section-tag edu">🎓 education</div>
-    <div class="card row-card">
-      <div>
-        <div class="card-title">$ Korea AeroSpace Univ.</div>
-        <div class="card-sub">Computer Engineering</div>
+    <div class="section-gap">
+      <div class="section-tag edu">🎓 education</div>
+      <div class="card row-card">
+        <div>
+          <div class="card-title">$ Korea AeroSpace Univ.</div>
+          <div class="card-sub">Computer Engineering</div>
+        </div>
+        <div class="card-sub">2021.03 ~ current</div>
       </div>
-      <div class="card-sub">2021.03 ~ current</div>
     </div>
-  </div>
 
-  <div class="section-gap">
-    <div class="section-tag lang">🗂 language</div>
-    <div class="card" style="margin-bottom:8px;">
-      <div class="card-title">$ Korean</div>
-      <div style="margin-top:6px;"><span class="badge native">Native</span></div>
+    <div class="section-gap">
+      <div class="section-tag lang">🗂 language</div>
+      <div class="card" style="margin-bottom:8px;">
+        <div class="card-title">$ Korean</div>
+        <div style="margin-top:6px;"><span class="badge native">Native</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">$ English</div>
+        <div style="margin-top:6px;"><span class="badge toeic">TOEIC 955</span></div>
+      </div>
     </div>
-    <div class="card">
-      <div class="card-title">$ English</div>
-      <div style="margin-top:6px;"><span class="badge toeic">TOEIC 955</span></div>
-    </div>
-  </div>
 
-  <div class="section-gap">
-    <div class="section-tag skills">⚙ skills</div>
-    <div class="sub-cmd">$ ls -F skills/languages/</div>
-    <div class="skills-grid">
-      <div class="skill-chip">☕ Java</div>
-      <div class="skill-chip">🐍 Python</div>
-      <div class="skill-chip">🐘 PHP</div>
-      <div class="skill-chip">🟨 JavaScript</div>
-      <div class="skill-chip">© C/C++</div>
+    <div class="section-gap">
+      <div class="section-tag skills">⚙ skills</div>
+      <div class="sub-cmd">$ ls -F skills/languages/</div>
+      <div class="skills-grid">
+        <div class="skill-chip">☕ Java</div>
+        <div class="skill-chip">🐍 Python</div>
+        <div class="skill-chip">🐘 PHP</div>
+        <div class="skill-chip">🟨 JavaScript</div>
+        <div class="skill-chip">© C/C++</div>
+      </div>
+      <div class="sub-cmd">$ ls -F skills/backend_db/</div>
+      <div class="skills-grid">
+        <div class="skill-chip">🌿 Spring Boot</div>
+        <div class="skill-chip">🟩 Node.js</div>
+        <div class="skill-chip">🦄 Django</div>
+        <div class="skill-chip">🐬 MySQL</div>
+        <div class="skill-chip">🔥 Firebase</div>
+      </div>
+      <div class="sub-cmd">$ ls -F skills/infra_devops/</div>
+      <div class="skills-grid">
+        <div class="skill-chip">🌀 Debian</div>
+        <div class="skill-chip">⚡ Nginx</div>
+        <div class="skill-chip">☁️ AWS EC2/Lambda</div>
+        <div class="skill-chip">🐳 Docker</div>
+        <div class="skill-chip">🔀 Git</div>
+      </div>
     </div>
-    <div class="sub-cmd">$ ls -F skills/backend_db/</div>
-    <div class="skills-grid">
-      <div class="skill-chip">🌿 Spring Boot</div>
-      <div class="skill-chip">🟩 Node.js</div>
-      <div class="skill-chip">🦄 Django</div>
-      <div class="skill-chip">🐬 MySQL</div>
-      <div class="skill-chip">🔥 Firebase</div>
+
+    <div class="section-gap">
+      <div class="sub-cmd">$ uptime --stats</div>
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-icon">🖥️</div>
+          <div class="stat-number-wrap">
+            <span class="stat-number" data-target="9">0</span>
+          </div>
+          <div class="stat-label">projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🏆</div>
+          <div class="stat-number-wrap">
+            <span class="stat-number" data-target="2">0</span>
+          </div>
+          <div class="stat-label">awards</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💼</div>
+          <div class="stat-number-wrap">
+            <span class="stat-number" data-target="5">0</span>
+          </div>
+          <div class="stat-label">experiences</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-number-wrap">
+            <span class="stat-number" data-target="4">0</span>
+            <span class="stat-suffix">+</span>
+          </div>
+          <div class="stat-label">years coding</div>
+        </div>
+      </div>
     </div>
-    <div class="sub-cmd">$ ls -F skills/infra_devops/</div>
-    <div class="skills-grid">
-      <div class="skill-chip">🌀 Debian</div>
-      <div class="skill-chip">⚡ Nginx</div>
-      <div class="skill-chip">☁️ AWS EC2/Lambda</div>
-      <div class="skill-chip">🐳 Docker</div>
-      <div class="skill-chip">🔀 Git</div>
+  </section>
+
+  <!-- ── EXPERIENCE ── -->
+  <section id="experience" class="page-section fade-in">
+    <div class="breadcrumb">
+      <span class="crumb-dir">📁 ~/eunhak</span>
+      <span class="crumb-arr"></span>
+      <span class="crumb-sub">📄 experience</span>
+      <span class="crumb-arr2"></span>
     </div>
-  </div>
+    <div class="page-title">$ cat experience.md</div>
+    <div class="page-sub">총 5개의 경험</div>
+
+    <div class="sec-label">work</div>
+    <div class="exp-grid" id="workGrid"></div>
+
+    <div class="sec-label">activity</div>
+    <div class="exp-grid" id="activityGrid"></div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects" class="page-section fade-in">
+    <div class="breadcrumb">
+      <span class="crumb-dir">📁 ~/eunhak</span>
+      <span class="crumb-arr"></span>
+      <span class="crumb-sub">📂 projects</span>
+      <span class="crumb-arr2"></span>
+    </div>
+    <div class="page-title">$ ls -F projects/</div>
+    <div class="page-sub">총 <span id="totalCount">0</span>개의 프로젝트</div>
+
+    <div class="yr-tabs" id="yrTabs"></div>
+
+    <div class="proj-body">
+      <div id="cardList"></div>
+      <div class="detail-panel" id="detailPanel">
+        <div class="detail-empty">
+          <div class="detail-empty-icon">▶</div>
+          <div class="detail-empty-text">프로젝트를 선택해봐요</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact" class="page-section fade-in">
+    <div class="breadcrumb">
+      <span class="crumb-dir">📁 ~/eunhak</span>
+      <span class="crumb-arr"></span>
+      <span class="crumb-sub">📬 contact</span>
+      <span class="crumb-arr2"></span>
+    </div>
+    <div class="page-title">$ cat contact.md</div>
+    <div class="page-sub">연락처 및 채널</div>
+
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:silverhak1111@gmail.com">
+        <div class="contact-icon">✉</div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">silverhak1111@gmail.com</div>
+      </a>
+      <a class="contact-card" href="https://github.com/eunhak11" target="_blank">
+        <div class="contact-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85 0 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+        </div>
+        <div class="contact-label">GitHub</div>
+        <div class="contact-value">github.com/eunhak11</div>
+      </a>
+      <a class="contact-card" href="tel:01040795428">
+        <div class="contact-icon">📞</div>
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">010-4079-5428</div>
+      </a>
+      <a class="contact-card" href="https://hakssi.tistory.com/" target="_blank">
+        <div class="contact-icon">✍</div>
+        <div class="contact-label">Blog</div>
+        <div class="contact-value">hakssi.tistory.com</div>
+      </a>
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer">© 2026 | eunhak</footer>
@@ -127,12 +251,266 @@
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function openPwModal(){ document.getElementById('pwBg').classList.add('open'); setTimeout(()=>document.getElementById('pwInput').focus(),50); }
-function closePwModal(){ document.getElementById('pwBg').classList.remove('open'); document.getElementById('pwInput').value=''; document.getElementById('pwErr').style.display='none'; }
-document.getElementById('pwInput').addEventListener('keydown',e=>{ if(e.key==='Enter') tryLogin(); });
-document.getElementById('pwBg').addEventListener('click',e=>{ if(e.target===document.getElementById('pwBg')) closePwModal(); });
-function tryLogin(){
-  if(document.getElementById('pwInput').value==='eunhak1234'){
-    window.location.href='admin.html';
+<script>
+// ── PW Modal ──────────────────────────────────────────
+function openPwModal() {
+  document.getElementById('pwBg').classList.add('open');
+  setTimeout(() => document.getElementById('pwInput').focus(), 50);
+}
+function closePwModal() {
+  document.getElementById('pwBg').classList.remove('open');
+  document.getElementById('pwInput').value = '';
+  document.getElementById('pwErr').style.display = 'none';
+}
+document.getElementById('pwInput').addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
+document.getElementById('pwBg').addEventListener('click', e => { if (e.target === document.getElementById('pwBg')) closePwModal(); });
+function tryLogin() {
+  if (document.getElementById('pwInput').value === 'eunhak1234') {
+    window.location.href = 'admin.html';
+  } else {
+    document.getElementById('pwErr').style.display = 'block';
+    document.getElementById('pwInput').value = '';
   }
+}
+
+// ── Nav Scroll Highlight ───────────────────────────────
+const sections = document.querySelectorAll('.page-section');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function updateNavHighlight() {
+  let current = 'home';
+  sections.forEach(section => {
+    if (section.getBoundingClientRect().top <= 90) current = section.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+}
+window.addEventListener('scroll', updateNavHighlight, { passive: true });
+updateNavHighlight();
+
+// ── Scroll Fade-in ────────────────────────────────────
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      fadeObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+// ── Experience Data ───────────────────────────────────
+const works = [
+  { id:'w1', period:'2025.12 ~ current', title:'주)비틀웍스', sub:'Server & Infra', badge:'work', current:true,
+    activities:['Linux(Debian) 서버 관리 작업','3학년 겨울방학 현장실습 후 아르바이트로 전환'],
+    stacks:[{t:'Linux',c:'g'},{t:'Debian',c:'g'},{t:'Server',c:'b'}], note:'' },
+  { id:'w2', period:'2022.06 ~ 2022.09', title:'DuPont Korea', sub:'Water & Protection / HSS Solution Internship', badge:'work', current:false,
+    activities:['방호복 내부 열관리 실험 설계 및 진행, 실험 물자 관리','3D Modeling — 프로토타입 부품 설계 및 프린팅','모델별 실험 결과 저장 및 분석, PPT 제작 및 발표'],
+    stacks:[{t:'3D Modeling',c:'gray'},{t:'Data Analysis',c:'gray'}], note:'' },
+];
+
+const activities = [
+  { id:'a1', period:'2025.03 ~ 2025.06', title:'한국항공대학교 산학 프로젝트', sub:'Backend Member', badge:'project', current:false,
+    activities:['꾸준 — 느린 학습자의 학습적·사회적 자립 지원 앱','KakaoPay, GooglePlayBilling API 활용 구독 모델 개발','일일 학습 결과 저장·조회 달력 API 개발'],
+    stacks:[{t:'Spring JPA',c:'a'},{t:'Spring Security',c:'a'},{t:'OAuth',c:'b'},{t:'JWT',c:'b'},{t:'MySQL',c:'b'},{t:'H2',c:'gray'}],
+    note:'2025 산학프로젝트 1위 수상' },
+  { id:'a2', period:'2025.03 ~ 2025.06', title:'한국항공대학교 UMC', sub:'개발 연합동아리 8th Member', badge:'club', current:false,
+    activities:['Springboot 팀 스터디장','세션: Git, Java, Springboot, JPA, MySQL, Paging, Swagger'],
+    stacks:[{t:'Java',c:'a'},{t:'Spring Boot',c:'a'},{t:'JPA',c:'a'},{t:'MySQL',c:'b'},{t:'Swagger',c:'gray'}], note:'' },
+  { id:'a3', period:'2022.03 ~ 2023.06', title:'한국항공대학교 멋쟁이사자처럼', sub:'웹 개발 & IT 창업 동아리 11기 멤버 → 12기 운영진', badge:'club', current:false,
+    activities:['11기 — 세션: Git, Python, UX/UI, Crawling, Django','11기 — 반려동물 명품 쇼핑몰 CHEG 개발 (크롤링 기반)','11기 — 멋사 중앙 해커톤 참가 (CHEG), MSW 슈퍼해커톤 참가','12기 운영진 — Java 세션 진행 및 기타 세션 자료 검수','12기 — 세션: Java, Spring Boot, HTML, CSS, UX/UI, AWS'],
+    stacks:[{t:'Python',c:'a'},{t:'Django',c:'a'},{t:'MySQL',c:'b'},{t:'Java',c:'a'},{t:'Spring Boot',c:'a'},{t:'AWS',c:'g'}], note:'' },
+];
+
+function buildExp(data, gridId) {
+  document.getElementById(gridId).innerHTML = data.map(e => `
+    <div class="exp-card" id="${e.id}" onclick="toggle('${e.id}')">
+      <div class="exp-main">
+        <span class="exp-period">${e.period}</span>
+        <div>
+          <div class="exp-title">${e.title}</div>
+          <div class="exp-sub">${e.sub}</div>
+        </div>
+        <div class="exp-badges">
+          <span class="ebadge ${e.badge}">${e.badge==='work'?'경력':e.badge==='club'?'동아리':'프로젝트'}</span>
+          ${e.current ? '<span class="ebadge current">재직중</span>' : ''}
+          <span class="chevron">▶</span>
+        </div>
+      </div>
+      <div class="exp-detail">
+        <div class="dl">활동 내용</div>
+        <ul class="bullet-list">${e.activities.map(a=>`<li>${a}</li>`).join('')}</ul>
+        ${e.stacks.length ? `
+        <div class="dl" style="margin-top:10px;">기술 스택</div>
+        <div class="tag-row">${e.stacks.map(s=>`<span class="etag ${s.c}">${s.t}</span>`).join('')}</div>` : ''}
+        ${e.note ? `<div style="font-family:var(--mono);font-size:11px;color:#854F0B;background:#FAEEDA;border-radius:6px;padding:6px 10px;margin-top:10px;">🏆 ${e.note}</div>` : ''}
+      </div>
+    </div>`).join('');
+}
+
+function toggle(id) { document.getElementById(id).classList.toggle('open'); }
+
+buildExp(works, 'workGrid');
+buildExp(activities, 'activityGrid');
+
+// ── Projects Data ─────────────────────────────────────
+const projects = [
+  { id:1, year:2025, title:'꾸준', desc:'느린 학습자 학습 지원 앱 백엔드',
+    tags:['Spring JPA','Spring Security','OAuth','JWT','MySQL'], types:['a','a','b','b','b'],
+    detail:'KakaoPay, GooglePlayBilling API 활용 구독 모델 개발. 일일 학습 결과 저장·조회 달력 API 개발.',
+    role:'Backend Member (산학 프로젝트)', period:'2025.03 ~ 2025.06', github:'', demo:'',
+    award:'1위 · 학장상' },
+  { id:2, year:2024, title:'서버 모니터링 툴', desc:'Nginx 로그 실시간 파싱 대시보드',
+    tags:['Python','Flask','Chart.js'], types:['a','a','b'],
+    detail:'Nginx 액세스 로그를 실시간으로 파싱해 트래픽 현황을 웹 대시보드로 시각화. 1초 간격 폴링 방식.',
+    role:'개인 프로젝트', period:'2024.09 ~ 2024.11', github:'https://github.com', demo:'' },
+  { id:3, year:2024, title:'REST API 서버', desc:'Spring Boot 기반 JWT 인증 CRUD API',
+    tags:['Java','Spring Boot','MySQL'], types:['a','a','b'],
+    detail:'계층형 아키텍처, JUnit 단위 테스트. AWS EC2 + Nginx 리버스 프록시 배포.',
+    role:'개인 프로젝트', period:'2024.03 ~ 2024.05', github:'https://github.com', demo:'' },
+  { id:4, year:2024, title:'AWS 인프라 구성', desc:'3-tier 아키텍처 IaC 실습',
+    tags:['AWS','Terraform','Linux'], types:['g','g',''],
+    detail:'EC2, RDS, S3 기반 3-tier 구성. Terraform으로 인프라 코드화, 오토스케일링 그룹 및 ALB 설정.',
+    role:'개인 실습', period:'2024.07 ~ 2024.08', github:'', demo:'' },
+  { id:5, year:2023, title:'실시간 채팅 앱', desc:'WebSocket 기반 다중 채널 채팅',
+    tags:['Node.js','Socket.io','MongoDB'], types:['g','g','b'],
+    detail:'룸 기반 채널, 메시지 히스토리 저장. 이미지 전송 기능 포함. Heroku 배포.',
+    role:'개인 프로젝트', period:'2023.06 ~ 2023.08', github:'https://github.com', demo:'https://demo.example.com' },
+  { id:6, year:2023, title:'학사 정보 크롤러', desc:'공지사항 자동 크롤링 Discord 봇',
+    tags:['Python','BeautifulSoup','Discord API'], types:['a','a','p'],
+    detail:'매 30분 크롤링, 새 공지 감지 시 Discord 웹훅 알림. 현재도 실 사용 중.',
+    role:'개인 프로젝트', period:'2023.03 ~ 현재', github:'https://github.com', demo:'' },
+  { id:7, year:2022, title:'CHEG', desc:'반려동물 명품 쇼핑몰 크롤링 서비스',
+    tags:['Python','Django','MySQL','Ajax'], types:['a','a','b','b'],
+    detail:'반려동물 명품 상품정보 & 링크를 크롤링하여 제공. 멋사 11기 팀 프로젝트. 중앙 해커톤 출품.',
+    role:'멋쟁이사자처럼 11기 팀 프로젝트', period:'2022.09 ~ 2022.11', github:'https://github.com', demo:'',
+    award:'최우수상 · 창업 아이디어 경진대회' },
+  { id:8, year:2022, title:'포트폴리오 사이트 v1', desc:'바닐라 JS 개인 포트폴리오',
+    tags:['HTML','CSS','JavaScript'], types:['b','','g'],
+    detail:'프레임워크 없이 바닐라 JS만으로 구현. 반응형 레이아웃, 다크모드, 스크롤 애니메이션.',
+    role:'개인 프로젝트', period:'2022.09 ~ 2022.10', github:'https://github.com', demo:'' },
+  { id:9, year:2021, title:'계산기 앱', desc:'키보드 지원 웹 계산기 — 첫 프로젝트',
+    tags:['HTML','CSS','JavaScript'], types:['b','','g'],
+    detail:'첫 웹 개발 프로젝트. 사칙연산, 키보드 입력, 연산자 우선순위 처리.',
+    role:'개인 프로젝트', period:'2021.12', github:'https://github.com', demo:'' },
+];
+
+const years = [...new Set(projects.map(p => p.year))].sort((a, b) => b - a);
+let activeYear = years[0];
+let selectedId = null;
+
+document.getElementById('totalCount').textContent = projects.length;
+
+function buildTabs() {
+  document.getElementById('yrTabs').innerHTML = years.map(y => {
+    const cnt = projects.filter(p => p.year === y).length;
+    return `<div class="yr-tab${y === activeYear ? ' active' : ''}" onclick="selectYear(${y})">${y}<span class="yr-count">${cnt}</span></div>`;
+  }).join('');
+}
+
+function buildCards() {
+  const list = projects.filter(p => p.year === activeYear);
+  document.getElementById('cardList').innerHTML = list.map(p => `
+    <div class="proj-card${selectedId === p.id ? ' active' : ''}" onclick="selectProject(${p.id})">
+      ${p.award ? `<div class="award-badge">🏆 ${p.award}</div>` : ''}
+      <div class="proj-card-title">${p.title}<span class="proj-arrow">→</span></div>
+      <div class="proj-desc-short">${p.desc}</div>
+      <div class="tag-row">${p.tags.map((t, i) => `<span class="ptag ${p.types[i] || ''}">${t}</span>`).join('')}</div>
+    </div>`).join('');
+}
+
+function buildDetail(p) {
+  if (!p) {
+    document.getElementById('detailPanel').innerHTML = `
+      <div class="detail-empty">
+        <div class="detail-empty-icon">▶</div>
+        <div class="detail-empty-text">프로젝트를 선택해봐요</div>
+      </div>`;
+    return;
+  }
+  document.getElementById('detailPanel').innerHTML = `
+    <div class="detail-yr">$ cat projects/${p.year}/${p.title.replace(/\s/g, '_')}.md</div>
+    <div class="detail-title">${p.title}</div>
+    ${p.award ? `<div class="detail-award">🏆 ${p.award}</div>` : ''}
+    <div class="detail-tags">${p.tags.map((t, i) => `<span class="ptag ${p.types[i] || ''}" style="font-size:11px;padding:3px 10px;">${t}</span>`).join('')}</div>
+    <div class="dl">기간</div><div class="dv">${p.period}</div>
+    <div class="dl">역할</div><div class="dv">${p.role}</div>
+    <div class="divider"></div>
+    <div class="dl">상세 내용</div>
+    <div class="dv">${p.detail}</div>
+    <div class="links-row">
+      ${p.github ? `<a class="det-link gh" href="${p.github}" target="_blank">GitHub →</a>` : ''}
+      ${p.demo   ? `<a class="det-link demo" href="${p.demo}" target="_blank">Demo →</a>` : ''}
+    </div>`;
+}
+
+function selectYear(y) { activeYear = y; selectedId = null; buildTabs(); buildCards(); buildDetail(null); }
+function selectProject(id) { selectedId = id; buildCards(); buildDetail(projects.find(p => p.id === id)); }
+
+buildTabs(); buildCards(); buildDetail(null);
+
+// ── Typewriter ────────────────────────────────────────
+const typeMessages = [
+  'Learning Infra & Server Engineering',
+  'Building Backend APIs',
+  'Configuring Linux Servers',
+];
+let typeIdx = 0, charIdx = 0, isDeleting = false;
+const typeEl = document.getElementById('typewriter');
+
+function typeStep() {
+  const msg = typeMessages[typeIdx];
+  if (!isDeleting) {
+    typeEl.textContent = msg.slice(0, ++charIdx);
+    if (charIdx === msg.length) {
+      isDeleting = true;
+      setTimeout(typeStep, 1800);
+      return;
+    }
+    setTimeout(typeStep, 65);
+  } else {
+    typeEl.textContent = msg.slice(0, --charIdx);
+    if (charIdx === 0) {
+      isDeleting = false;
+      typeIdx = (typeIdx + 1) % typeMessages.length;
+      setTimeout(typeStep, 350);
+      return;
+    }
+    setTimeout(typeStep, 30);
+  }
+}
+typeStep();
+
+// ── Stats Count-up ────────────────────────────────────
+function animateCount(el, target) {
+  const duration = 1400;
+  const start = performance.now();
+  const update = (now) => {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(ease * target);
+    if (progress < 1) requestAnimationFrame(update);
+    else el.textContent = target;
+  };
+  requestAnimationFrame(update);
+}
+
+const statsObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.stat-number').forEach(el => {
+        animateCount(el, parseInt(el.dataset.target));
+      });
+      statsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+const statsRow = document.querySelector('.stats-row');
+if (statsRow) statsObserver.observe(statsRow);
+</script>
+</body>
+</html>
