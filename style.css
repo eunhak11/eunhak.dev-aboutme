@@ -193,9 +193,17 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); min-
 .sub-cmd { font-family: var(--mono); font-size: 12px; color: #B47A3C; margin: 14px 0 8px; }
 
 /* ── Cards ── */
-.card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 10px; padding: 1.1rem 1.4rem; margin-bottom: 10px; transition: border-color 0.15s, transform 0.15s; }
-.card:hover { border-color: var(--amber); transform: translateY(-2px); }
+.card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 10px; padding: 1.1rem 1.4rem; margin-bottom: 10px; transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; }
 .row-card { display: flex; justify-content: space-between; align-items: center; }
+/* ── Shared card hover ── */
+.card:hover, .stat-card:hover, .proj-card:hover, .contact-card:hover, .exp-card:hover {
+  border-color: var(--teal);
+  box-shadow: 0 0 10px rgba(92,174,173,0.25), 0 0 24px rgba(92,174,173,0.12);
+}
+.card:hover, .stat-card:hover, .proj-card:hover, .contact-card:hover {
+  transform: translateY(-2px);
+}
+
 .card-title { font-family: var(--mono); font-size: 14px; font-weight: 500; color: var(--text); }
 .card-sub { font-family: var(--mono); font-size: 12px; color: var(--hint); }
 .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-family: var(--mono); font-size: 11px; border: 0.5px solid var(--border); background: var(--bg); color: var(--hint); }
@@ -228,7 +236,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); min-
 .sec-label { font-family: var(--mono); font-size: 11px; color: var(--faint); letter-spacing: 0.05em; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
 .sec-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
 .exp-grid { display: flex; flex-direction: column; gap: 8px; margin-bottom: 2rem; }
-.exp-card { background: #fff; border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; cursor: pointer; }
+.exp-card { background: #fff; border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s; }
 .exp-card:hover .exp-main { background: #FAFAF8; }
 .exp-main { display: grid; grid-template-columns: 150px 1fr auto; align-items: center; gap: 1rem; padding: 14px 16px; transition: background 0.15s; }
 .exp-period { font-family: var(--mono); font-size: 11px; color: var(--faint); white-space: nowrap; }
@@ -266,8 +274,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); min-
 .yr-tab:hover:not(.active) { background: var(--border); color: var(--text); }
 .yr-count { font-size: 10px; margin-left: 5px; opacity: 0.6; }
 .proj-body { display: grid; grid-template-columns: 260px 1fr; gap: 1.2rem; align-items: start; }
-.proj-card { position: relative; background: #fff; border: 0.5px solid var(--border); border-radius: 10px; padding: 12px 14px; cursor: pointer; transition: border-color 0.15s, transform 0.15s; margin-bottom: 6px; }
-.proj-card:hover { border-color: var(--amber); transform: translateY(-2px); }
+.proj-card { position: relative; background: #fff; border: 0.5px solid var(--border); border-radius: 10px; padding: 12px 14px; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; margin-bottom: 6px; }
 .proj-card.active { border-color: var(--text); }
 .proj-card-title { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 4px; display: flex; align-items: center; justify-content: space-between; }
 .proj-arrow { font-size: 10px; color: var(--faint); transition: transform 0.15s; }
@@ -337,8 +344,13 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); min-
 
 /* ── Stats ── */
 .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-.stat-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.2rem 1rem; text-align: center; transition: border-color 0.15s, transform 0.15s; }
-.stat-card:hover { border-color: var(--amber); transform: translateY(-2px); }
+@keyframes stat-glow {
+  0%   { border-color: var(--border); box-shadow: none; }
+  35%  { border-color: var(--amber); box-shadow: 0 0 14px rgba(212,169,106,0.32); }
+  100% { border-color: var(--border); box-shadow: none; }
+}
+.stat-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.2rem 1rem; text-align: center; transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; }
+.stat-card.glowing { animation: stat-glow 1s ease-out forwards; }
 .stat-icon { font-size: 22px; margin-bottom: 10px; }
 .stat-number-wrap { display: flex; align-items: baseline; justify-content: center; gap: 1px; }
 .stat-number { font-family: var(--mono); font-size: 2rem; font-weight: 500; color: var(--text); }
@@ -347,8 +359,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); min-
 
 /* ── Contact Section ── */
 .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.contact-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.4rem; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: var(--text); transition: border-color 0.15s, transform 0.15s; }
-.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); }
+.contact-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.4rem; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: var(--text); transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; }
 .contact-icon { font-size: 20px; color: var(--muted); display: flex; align-items: center; }
 .contact-label { font-family: var(--mono); font-size: 11px; color: var(--faint); }
 .contact-value { font-family: var(--mono); font-size: 13px; color: var(--text); word-break: break-all; }

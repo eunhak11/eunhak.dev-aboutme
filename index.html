@@ -130,21 +130,21 @@
         <div class="stat-card">
           <div class="stat-icon">🖥️</div>
           <div class="stat-number-wrap">
-            <span class="stat-number" data-target="9">0</span>
+            <span class="stat-number" id="stat-projects" data-target="0">0</span>
           </div>
           <div class="stat-label">projects</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon">🏆</div>
           <div class="stat-number-wrap">
-            <span class="stat-number" data-target="2">0</span>
+            <span class="stat-number" id="stat-awards" data-target="0">0</span>
           </div>
           <div class="stat-label">awards</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon">💼</div>
           <div class="stat-number-wrap">
-            <span class="stat-number" data-target="5">0</span>
+            <span class="stat-number" id="stat-experiences" data-target="0">0</span>
           </div>
           <div class="stat-label">experiences</div>
         </div>
@@ -307,28 +307,8 @@ const fadeObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
-// ── Experience Data ───────────────────────────────────
-const works = [
-  { id:'w1', period:'2025.12 ~ current', title:'주)비틀웍스', sub:'Server & Infra', badge:'work', current:true,
-    activities:['Linux(Debian) 서버 관리 작업','3학년 겨울방학 현장실습 후 아르바이트로 전환'],
-    stacks:[{t:'Linux',c:'g'},{t:'Debian',c:'g'},{t:'Server',c:'b'}], note:'' },
-  { id:'w2', period:'2022.06 ~ 2022.09', title:'DuPont Korea', sub:'Water & Protection / HSS Solution Internship', badge:'work', current:false,
-    activities:['방호복 내부 열관리 실험 설계 및 진행, 실험 물자 관리','3D Modeling — 프로토타입 부품 설계 및 프린팅','모델별 실험 결과 저장 및 분석, PPT 제작 및 발표'],
-    stacks:[{t:'3D Modeling',c:'gray'},{t:'Data Analysis',c:'gray'}], note:'' },
-];
-
-const activities = [
-  { id:'a1', period:'2025.03 ~ 2025.06', title:'한국항공대학교 산학 프로젝트', sub:'Backend Member', badge:'project', current:false,
-    activities:['꾸준 — 느린 학습자의 학습적·사회적 자립 지원 앱','KakaoPay, GooglePlayBilling API 활용 구독 모델 개발','일일 학습 결과 저장·조회 달력 API 개발'],
-    stacks:[{t:'Spring JPA',c:'a'},{t:'Spring Security',c:'a'},{t:'OAuth',c:'b'},{t:'JWT',c:'b'},{t:'MySQL',c:'b'},{t:'H2',c:'gray'}],
-    note:'2025 산학프로젝트 1위 수상' },
-  { id:'a2', period:'2025.03 ~ 2025.06', title:'한국항공대학교 UMC', sub:'개발 연합동아리 8th Member', badge:'club', current:false,
-    activities:['Springboot 팀 스터디장','세션: Git, Java, Springboot, JPA, MySQL, Paging, Swagger'],
-    stacks:[{t:'Java',c:'a'},{t:'Spring Boot',c:'a'},{t:'JPA',c:'a'},{t:'MySQL',c:'b'},{t:'Swagger',c:'gray'}], note:'' },
-  { id:'a3', period:'2022.03 ~ 2023.06', title:'한국항공대학교 멋쟁이사자처럼', sub:'웹 개발 & IT 창업 동아리 11기 멤버 → 12기 운영진', badge:'club', current:false,
-    activities:['11기 — 세션: Git, Python, UX/UI, Crawling, Django','11기 — 반려동물 명품 쇼핑몰 CHEG 개발 (크롤링 기반)','11기 — 멋사 중앙 해커톤 참가 (CHEG), MSW 슈퍼해커톤 참가','12기 운영진 — Java 세션 진행 및 기타 세션 자료 검수','12기 — 세션: Java, Spring Boot, HTML, CSS, UX/UI, AWS'],
-    stacks:[{t:'Python',c:'a'},{t:'Django',c:'a'},{t:'MySQL',c:'b'},{t:'Java',c:'a'},{t:'Spring Boot',c:'a'},{t:'AWS',c:'g'}], note:'' },
-];
+// ── Data Load ─────────────────────────────────────────
+let works = [], activities = [], projects = [];
 
 function buildExp(data, gridId) {
   document.getElementById(gridId).innerHTML = data.map(e => `
@@ -362,54 +342,12 @@ buildExp(works, 'workGrid');
 buildExp(activities, 'activityGrid');
 
 // ── Projects Data ─────────────────────────────────────
-const projects = [
-  { id:1, year:2025, title:'꾸준', desc:'느린 학습자 학습 지원 앱 백엔드',
-    tags:['Spring JPA','Spring Security','OAuth','JWT','MySQL'], types:['a','a','b','b','b'],
-    detail:'KakaoPay, GooglePlayBilling API 활용 구독 모델 개발. 일일 학습 결과 저장·조회 달력 API 개발.',
-    role:'Backend Member (산학 프로젝트)', period:'2025.03 ~ 2025.06', github:'', demo:'',
-    award:'1위 · 학장상' },
-  { id:2, year:2024, title:'서버 모니터링 툴', desc:'Nginx 로그 실시간 파싱 대시보드',
-    tags:['Python','Flask','Chart.js'], types:['a','a','b'],
-    detail:'Nginx 액세스 로그를 실시간으로 파싱해 트래픽 현황을 웹 대시보드로 시각화. 1초 간격 폴링 방식.',
-    role:'개인 프로젝트', period:'2024.09 ~ 2024.11', github:'https://github.com', demo:'' },
-  { id:3, year:2024, title:'REST API 서버', desc:'Spring Boot 기반 JWT 인증 CRUD API',
-    tags:['Java','Spring Boot','MySQL'], types:['a','a','b'],
-    detail:'계층형 아키텍처, JUnit 단위 테스트. AWS EC2 + Nginx 리버스 프록시 배포.',
-    role:'개인 프로젝트', period:'2024.03 ~ 2024.05', github:'https://github.com', demo:'' },
-  { id:4, year:2024, title:'AWS 인프라 구성', desc:'3-tier 아키텍처 IaC 실습',
-    tags:['AWS','Terraform','Linux'], types:['g','g',''],
-    detail:'EC2, RDS, S3 기반 3-tier 구성. Terraform으로 인프라 코드화, 오토스케일링 그룹 및 ALB 설정.',
-    role:'개인 실습', period:'2024.07 ~ 2024.08', github:'', demo:'' },
-  { id:5, year:2023, title:'실시간 채팅 앱', desc:'WebSocket 기반 다중 채널 채팅',
-    tags:['Node.js','Socket.io','MongoDB'], types:['g','g','b'],
-    detail:'룸 기반 채널, 메시지 히스토리 저장. 이미지 전송 기능 포함. Heroku 배포.',
-    role:'개인 프로젝트', period:'2023.06 ~ 2023.08', github:'https://github.com', demo:'https://demo.example.com' },
-  { id:6, year:2023, title:'학사 정보 크롤러', desc:'공지사항 자동 크롤링 Discord 봇',
-    tags:['Python','BeautifulSoup','Discord API'], types:['a','a','p'],
-    detail:'매 30분 크롤링, 새 공지 감지 시 Discord 웹훅 알림. 현재도 실 사용 중.',
-    role:'개인 프로젝트', period:'2023.03 ~ 현재', github:'https://github.com', demo:'' },
-  { id:7, year:2022, title:'CHEG', desc:'반려동물 명품 쇼핑몰 크롤링 서비스',
-    tags:['Python','Django','MySQL','Ajax'], types:['a','a','b','b'],
-    detail:'반려동물 명품 상품정보 & 링크를 크롤링하여 제공. 멋사 11기 팀 프로젝트. 중앙 해커톤 출품.',
-    role:'멋쟁이사자처럼 11기 팀 프로젝트', period:'2022.09 ~ 2022.11', github:'https://github.com', demo:'',
-    award:'최우수상 · 창업 아이디어 경진대회' },
-  { id:8, year:2022, title:'포트폴리오 사이트 v1', desc:'바닐라 JS 개인 포트폴리오',
-    tags:['HTML','CSS','JavaScript'], types:['b','','g'],
-    detail:'프레임워크 없이 바닐라 JS만으로 구현. 반응형 레이아웃, 다크모드, 스크롤 애니메이션.',
-    role:'개인 프로젝트', period:'2022.09 ~ 2022.10', github:'https://github.com', demo:'' },
-  { id:9, year:2021, title:'계산기 앱', desc:'키보드 지원 웹 계산기 — 첫 프로젝트',
-    tags:['HTML','CSS','JavaScript'], types:['b','','g'],
-    detail:'첫 웹 개발 프로젝트. 사칙연산, 키보드 입력, 연산자 우선순위 처리.',
-    role:'개인 프로젝트', period:'2021.12', github:'https://github.com', demo:'' },
-];
-
-const years = [...new Set(projects.map(p => p.year))].sort((a, b) => b - a);
-let activeYear = years[0];
+let activeYear = null;
 let selectedId = null;
 
-document.getElementById('totalCount').textContent = projects.length;
-
 function buildTabs() {
+  const years = [...new Set(projects.map(p => p.year))].sort((a, b) => b - a);
+  if (!activeYear) activeYear = years[0];
   document.getElementById('yrTabs').innerHTML = years.map(y => {
     const cnt = projects.filter(p => p.year === y).length;
     return `<div class="yr-tab${y === activeYear ? ' active' : ''}" onclick="selectYear(${y})">${y}<span class="yr-count">${cnt}</span></div>`;
@@ -422,7 +360,7 @@ function buildCards() {
     <div class="proj-card${selectedId === p.id ? ' active' : ''}" onclick="selectProject(${p.id})">
       ${p.award ? `<div class="award-badge">🏆 ${p.award}</div>` : ''}
       <div class="proj-card-title">${p.title}<span class="proj-arrow">→</span></div>
-      <div class="proj-desc-short">${p.desc}</div>
+      ${(Array.isArray(p.desc) ? p.desc : [p.desc]).map(d => `<div class="proj-desc-short">${d}</div>`).join('')}
       <div class="tag-row">${p.tags.map((t, i) => `<span class="ptag ${p.types[i] || ''}">${t}</span>`).join('')}</div>
     </div>`).join('');
 }
@@ -445,7 +383,9 @@ function buildDetail(p) {
     <div class="dl">역할</div><div class="dv">${p.role}</div>
     <div class="divider"></div>
     <div class="dl">상세 내용</div>
-    <div class="dv">${p.detail}</div>
+    ${Array.isArray(p.detail)
+      ? `<ul class="bullet-list">${p.detail.map(d => `<li>${d}</li>`).join('')}</ul>`
+      : `<div class="dv">${p.detail}</div>`}
     <div class="links-row">
       ${p.github ? `<a class="det-link gh" href="${p.github}" target="_blank">GitHub →</a>` : ''}
       ${p.demo   ? `<a class="det-link demo" href="${p.demo}" target="_blank">Demo →</a>` : ''}
@@ -455,7 +395,27 @@ function buildDetail(p) {
 function selectYear(y) { activeYear = y; selectedId = null; buildTabs(); buildCards(); buildDetail(null); }
 function selectProject(id) { selectedId = id; buildCards(); buildDetail(projects.find(p => p.id === id)); }
 
-buildTabs(); buildCards(); buildDetail(null);
+// ── Fetch Data ────────────────────────────────────────
+Promise.all([
+  fetch('data/experience.json').then(r => r.json()),
+  fetch('data/projects.json').then(r => r.json())
+]).then(([expData, projData]) => {
+  works      = expData.works;
+  activities = expData.activities;
+  projects   = projData;
+
+  // Stats
+  const awardCount = projects.filter(p => p.award).length
+                   + activities.filter(a => a.note).length;
+  document.getElementById('stat-projects').dataset.target    = projects.length;
+  document.getElementById('stat-awards').dataset.target      = awardCount;
+  document.getElementById('stat-experiences').dataset.target = works.length + activities.length;
+  document.getElementById('totalCount').textContent          = projects.length;
+
+  buildExp(works, 'workGrid');
+  buildExp(activities, 'activityGrid');
+  buildTabs(); buildCards(); buildDetail(null);
+});
 
 // ── Typewriter ────────────────────────────────────────
 const typeMessages = [
@@ -498,8 +458,16 @@ function animateCount(el, target) {
     const progress = Math.min(elapsed / duration, 1);
     const ease = 1 - Math.pow(1 - progress, 3);
     el.textContent = Math.floor(ease * target);
-    if (progress < 1) requestAnimationFrame(update);
-    else el.textContent = target;
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      el.textContent = target;
+      const card = el.closest('.stat-card');
+      if (card) {
+        card.classList.add('glowing');
+        card.addEventListener('animationend', () => card.classList.remove('glowing'), { once: true });
+      }
+    }
   };
   requestAnimationFrame(update);
 }

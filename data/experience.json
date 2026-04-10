@@ -1,0 +1,108 @@
+{
+  "works": [
+    {
+      "id": "w1",
+      "period": "2025.12 ~ current",
+      "title": "주)비틀웍스",
+      "sub": "Server & Infra",
+      "badge": "work",
+      "current": true,
+      "activities": [
+        "Linux(Debian) 서버 관리 작업",
+        "3학년 겨울방학 현장실습 후 아르바이트로 전환"
+      ],
+      "stacks": [
+        { "t": "Linux", "c": "g" },
+        { "t": "Debian", "c": "g" },
+        { "t": "Server", "c": "b" }
+      ],
+      "note": ""
+    },
+    {
+      "id": "w2",
+      "period": "2022.06 ~ 2022.09",
+      "title": "DuPont Korea",
+      "sub": "Water & Protection / HSS Solution Internship",
+      "badge": "work",
+      "current": false,
+      "activities": [
+        "방호복 내부 열관리 실험 설계 및 진행, 실험 물자 관리",
+        "3D Modeling — 프로토타입 부품 설계 및 프린팅",
+        "모델별 실험 결과 저장 및 분석, PPT 제작 및 발표"
+      ],
+      "stacks": [
+        { "t": "3D Modeling", "c": "gray" },
+        { "t": "Data Analysis", "c": "gray" }
+      ],
+      "note": ""
+    }
+  ],
+  "activities": [
+    {
+      "id": "a1",
+      "period": "2025.03 ~ 2025.06",
+      "title": "한국항공대학교 산학 프로젝트",
+      "sub": "Backend Member",
+      "badge": "project",
+      "current": false,
+      "activities": [
+        "꾸준 — 느린 학습자의 학습적·사회적 자립 지원 앱",
+        "KakaoPay, GooglePlayBilling API 활용 구독 모델 개발",
+        "일일 학습 결과 저장·조회 달력 API 개발"
+      ],
+      "stacks": [
+        { "t": "Spring JPA", "c": "a" },
+        { "t": "Spring Security", "c": "a" },
+        { "t": "OAuth", "c": "b" },
+        { "t": "JWT", "c": "b" },
+        { "t": "MySQL", "c": "b" },
+        { "t": "H2", "c": "gray" }
+      ],
+      "note": "2025 산학프로젝트 1위 수상"
+    },
+    {
+      "id": "a2",
+      "period": "2025.03 ~ 2025.06",
+      "title": "한국항공대학교 UMC",
+      "sub": "개발 연합동아리 8th Member",
+      "badge": "club",
+      "current": false,
+      "activities": [
+        "Springboot 팀 스터디장",
+        "세션: Git, Java, Springboot, JPA, MySQL, Paging, Swagger"
+      ],
+      "stacks": [
+        { "t": "Java", "c": "a" },
+        { "t": "Spring Boot", "c": "a" },
+        { "t": "JPA", "c": "a" },
+        { "t": "MySQL", "c": "b" },
+        { "t": "Swagger", "c": "gray" }
+      ],
+      "note": ""
+    },
+    {
+      "id": "a3",
+      "period": "2022.03 ~ 2023.06",
+      "title": "한국항공대학교 멋쟁이사자처럼",
+      "sub": "웹 개발 & IT 창업 동아리 11기 멤버 → 12기 운영진",
+      "badge": "club",
+      "current": false,
+      "activities": [
+        "11기 — 세션: Git, Python, UX/UI, Crawling, Django",
+        "11기 — 반려동물 명품 쇼핑몰 CHEG 개발 (크롤링 기반)",
+        "11기 — 멋사 중앙 해커톤 참가 (CHEG), MSW 슈퍼해커톤 참가",
+        "12기 운영진 — Java 세션 진행 및 기타 세션 자료 검수",
+        "12기 — 세션: Java, Spring Boot, HTML, CSS, UX/UI, AWS"
+      ],
+      "stacks": [
+        { "t": "Python", "c": "a" },
+        { "t": "Django", "c": "a" },
+        { "t": "MySQL", "c": "b" },
+        { "t": "Java", "c": "a" },
+        { "t": "Spring Boot", "c": "a" },
+        { "t": "AWS", "c": "g" }
+      ],
+      "note": ""
+    }
+  ]
+}
